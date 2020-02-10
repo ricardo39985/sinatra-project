@@ -1,0 +1,8 @@
+<div>
+  <h2><%=@user.username%>, welcome to your Garage</h2>
+  <h3>What would you like to do?</h3><br><br>
+  <a href="/create_car">Add a car</a> <br>
+  <a href="/<%=session[:user_id]%>/all_cars">View all cars</a><br>
+  <a href="/edit">Edit a car</a><br>
+  <a href="/delete">Delete a car</a><br>
+</div>

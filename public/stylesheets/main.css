@@ -6,13 +6,33 @@
     padding: 0;
   }
 
-  html, body {
-    height: 100%;
-    width: 100%;
-  }
+  #links {
+    background-color: rgb(76, 162, 233);
+  color: white;
+  padding: 2em 25em 2em;
+  margin-right:445px;
+  margin-left: 445px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#links:hover {
+  background-color: #555;
+}
+
+#links:active {
+  background-color: black;
+}
+
+#links:visited {
+  background-color: #ccc;
+}
+
+/* Non-Demo Styles */
+
 
   /* --- Welcome Page Styles --- */
-  body {
+  #header {
     background-color: lightblue;
     color: #333;
     font-family: Sans-Serif;
