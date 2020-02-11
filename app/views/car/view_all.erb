@@ -1,7 +1,14 @@
 <div>
-<% @user.cars.each do |car| %>
-  <h3><%=car.make%></h3><br>
-  <h3><%=car.model%></h3><br>
-  <h3><%=car.year%></h3><br><br>
+<% if @user.cars.size==0 %>
+    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+  
+<% else %>
+  <% @user.cars.each do |car| %>
+    <h3><%=car.make%></h3><br>
+    <h3><%=car.model%></h3><br>
+    <h3><%=car.year%></h3><br><br>
+  <% end %>
+  
 <% end %>
+
 </div>

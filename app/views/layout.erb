@@ -7,6 +7,24 @@
   <title>Here in my Garage</title>
 </head>
 <body>
+<% if logged_in? %>
   <%=yield%>
+     <div id='links'>
+      <a href="/logout">Log out</a>
+      <a href="/">Home</a><br>
+
+    </div>
+  
+<% else %>
+    <%=yield%>
+   <div id='links'>
+      <a href="/login">Login</a><br>
+      <a href="/">Home</a><br>
+      <a href="/sign_up">Sign Up</a>
+    </div>
+
+<% end %>
+
+
 </body>
 </html>

@@ -1,0 +1,16 @@
+<div>
+<% if current_user.cars.size==0 %>
+    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+
+  
+<% else %>
+    <% current_user.cars.each do |car| %>
+    <a href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make%> <%=car.model%>, <%=car.year%></h3><br></a>
+  <% end %>
+  <input type="submit" name="" id="">
+<% end %>
+
+
+
+</form>  
+</div>

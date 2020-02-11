@@ -1,0 +1,9 @@
+<div>
+<form action="/<%=@car.id%>/edit" method = 'POST'>
+  <input type="hidden" name="_method" value="PATCH">
+  <%=@car.make%>:<br><input type="text" name="make" placeholder="<%=@car.make%>"><br>
+  <%=@car.model%>:<br><input type="text" name="model" placeholder="<%=@car.model%>"><br>
+  <%=@car.year%>:<br><input type="text" name="year" placeholder="<%=@car.year%>"><br>
+  <input type="submit" value="Save">
+</form>
+</div>

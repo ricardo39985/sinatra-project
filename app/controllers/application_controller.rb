@@ -22,7 +22,10 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       session[:user_id] && session[:user_id] == params[:id].to_i
     end
+    def current_user
+      User.find_by(id: session[:user_id])
+      
+    end
+
   end
-
-
 end

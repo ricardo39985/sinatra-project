@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 require_relative './app/controllers/car_controller.rb'
 require_relative './app/controllers/user_controller.rb'
+use Rack::MethodOverride
 use UserController
 use CarController
 run ApplicationController

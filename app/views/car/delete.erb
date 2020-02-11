@@ -1,0 +1,21 @@
+<div>
+<% if current_user.cars.size==0 %>
+    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+
+  
+<% else %>
+<form action="/<%=current_user.id%>/delete" method="POST">
+  <input type="hidden" name="_method" value="delete">
+    <% current_user.cars.each do |car| %>
+    <%=car.make%>: <input type="checkbox" name="cars[]" value="<%=car.id%>">
+  <% end %>
+  <input type="submit" name="" id="">
+
+</form>
+
+<% end %>
+
+
+
+</form>  
+</div>
