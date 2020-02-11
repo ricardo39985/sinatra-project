@@ -9,17 +9,15 @@
 <body>
 <% if logged_in? %>
   <%=yield%>
-     <div id='links'>
+     <div class='links'>
       <a href="/logout">Log out</a>
       <a href="/">Home</a><br>
-
     </div>
   
 <% else %>
     <%=yield%>
-   <div id='links'>
+   <div >
       <a href="/login">Login</a><br>
-      <a href="/">Home</a><br>
       <a href="/sign_up">Sign Up</a>
     </div>
 

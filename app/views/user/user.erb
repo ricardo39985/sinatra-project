@@ -1,8 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Here in my Garage</title>
+</head>
 <div>
-  <h2><%=@user.username%>, welcome to your Garage</h2>
+  <h2><%=@user.username.capitalize%>, Welcome to your Garage</h2>
   <h3>What would you like to do?</h3><br><br>
-  <a href="/<%=session[:user_id]%>/create_car">Add a car</a> <br>
-  <a href="/<%=session[:user_id]%>/all_cars">View all cars</a><br>
-  <a href="/<%=session[:user_id]%>/edit">Edit a car</a><br>
-  <a href="/<%=session[:user_id]%>/delete">Delete a car</a><br>
+
+  <div class="main">
+      <a href="/<%=session[:user_id]%>/create_car">Add a car</a> <br>
+      <a href="/<%=session[:user_id]%>/all_cars">View all cars</a><br>
+      <a href="/<%=session[:user_id]%>/edit">Edit a car</a><br>
+      <a href="/<%=session[:user_id]%>/delete">Delete a car</a><br>
+  </div>
+
 </div>

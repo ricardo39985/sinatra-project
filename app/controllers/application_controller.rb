@@ -52,9 +52,10 @@ class ApplicationController < Sinatra::Base
           car.errors.full_messages
         end
 
+      elsif params.size == 1
+        nil        
       else
         ["All fields are required"]
-        
       end
       
     end

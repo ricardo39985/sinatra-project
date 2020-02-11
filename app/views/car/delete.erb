@@ -7,7 +7,7 @@
 <form action="/<%=current_user.id%>/delete" method="POST">
   <input type="hidden" name="_method" value="delete">
     <% current_user.cars.each do |car| %>
-    <%=car.make%>: <input type="checkbox" name="cars[]" value="<%=car.id%>">
+    <%=car.make%> <%=car.model%>, <%=car.year%>: <input type="checkbox" name="cars[]" value="<%=car.id%>"> <br>
   <% end %>
   <input type="submit" name="" id="">
 
