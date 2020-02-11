@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/stylesheets/main.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Here in my Garage</title>
 </head>
-<body>
-<% if logged_in? %>
+<body class = "body">
+<% if session[:user_id] %>
   <%=yield%>
      <div class='links'>
-      <a href="/logout">Log out</a>
-      <a href="/">Home</a><br>
+      <a id="logout"href="/logout">Log out</a>
+      <a id="home"href="/">Home</a><br>
     </div>
   
 <% else %>
     <%=yield%>
-   <div >
+   <div id="sign_">
       <a href="/login">Login</a><br>
       <a href="/sign_up">Sign Up</a>
     </div>

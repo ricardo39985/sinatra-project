@@ -4,9 +4,11 @@
 
   
 <% else %>
+<div class="main">
     <% current_user.cars.each do |car| %>
-    <a href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make%> <%=car.model%>, <%=car.year%></h3><br></a>
+    <a id="car_list"href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3></a><br>
   <% end %>
+</div>
 <% end %>
 
 

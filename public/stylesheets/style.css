@@ -1,0 +1,70 @@
+#create_car, #all_cars, #edit, #delete, #car_list,#new_car, #viewall, #editform, #sign_ {
+  background-color: #155986;
+  color: black;
+  padding: 10px 12px;
+  margin-bottom: 11px;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+  align-content: space-around;
+}
+
+.main{
+  background-repeat:no-repeat;
+  background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Lamborghini/2019_Awaited_Lamborghini_Aventador_SVJ_63_4K_Car.jpg);
+  background-size: cover;
+  /* padding: 100px 120px 55px 77px; */
+  margin: 2px 600px 5px 600px;
+  text-align: center;
+  border-radius: 25px;
+  
+}
+#logout, #home{
+  background-color: #155986;
+  color: white;
+  padding: 10px 12px;
+  margin-bottom: 11px;
+  margin-top: 5px;
+  margin-bottom: 11px;
+  margin-top: 5px;
+  padding: 10px 12px;
+  align-content: space-around;
+}
+.links{
+  margin: 2px 600px 5px 725px;
+  margin-top: 25px;
+}
+.body {
+  background-color: rgba(9, 10, 10, 0.568);
+}
+.hello {
+  align-content: center;
+  text-align: center;
+  background-color: #155986;
+  border-radius: 25px;
+  margin: 2px 600px 5px 600px;
+}
+.new_car, #viewall{
+  margin: 10px 300px 5px 700px;
+}
+
+#errors{
+  font-weight: 400;
+  padding-left: 29em;
+  color: rgb(138, 21, 21);
+}
+#car_list, {
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+}
+
+#editform{
+  padding-left: 1em;
+  margin-left: 42.5em;
+}
+#sign_{
+  margin: auto;
+}

@@ -4,7 +4,7 @@
   
 <% else %>
   <% @user.cars.each do |car| %>
-    <h3><%=car.make%> <%=car.model%>, <%=car.year%></h3>
+    <h3 id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3><br>
   <% end %>
   
 <% end %>

@@ -8,7 +8,7 @@ class CarController < ApplicationController
     
   end
   post '/create_car' do
-    binding.pry
+
     if create_errors?
       erb :'car/create' 
     else
@@ -62,7 +62,7 @@ class CarController < ApplicationController
   end
 
   get '/:id/:car/modify' do
-    # binding.pry
+
     @car = Car.find_by(id: params[:car])
     if logged_in?
       erb :'car/edit'
@@ -73,7 +73,7 @@ class CarController < ApplicationController
   end
   patch '/:car/edit' do
     params.delete(:_method)
-    # binding.pry
+
     @car = Car.find_by(id: params[:car])
     if update_errors?
       erb :'car/edit'

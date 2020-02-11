@@ -4,7 +4,7 @@
 
   
 <% else %>
-<form action="/<%=current_user.id%>/delete" method="POST">
+<form id="editform"action="/<%=current_user.id%>/delete" method="POST">
   <input type="hidden" name="_method" value="delete">
     <% current_user.cars.each do |car| %>
     <%=car.make%> <%=car.model%>, <%=car.year%>: <input type="checkbox" name="cars[]" value="<%=car.id%>"> <br>

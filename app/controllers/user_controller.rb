@@ -12,7 +12,6 @@ class UserController < ApplicationController
        session[:user_id]=@user.id
        redirect("/user/#{session[:user_id]}")
     elsif @user.errors.any?
-      binding.pry
       erb :'user/sign_up'
     end
   end
