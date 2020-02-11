@@ -3,13 +3,12 @@ class CarController < ApplicationController
     erb :'car/create'
   end
   post '/create_car' do
-    
-    errors?
-    if errors?
-      erb :'car/create'      
-    else
-      redirect("/#{session[:user_id]}/all_cars")
+    while create_errors?
+      erb :'car/create' 
     end
+    car = Car.new(params)
+    car.save
+    redirect("/#{session[:user_id]}/all_cars")
   end
 
   get '/:id/all_cars' do
@@ -65,7 +64,7 @@ class CarController < ApplicationController
     params.delete(:_method)
     # binding.pry
     @car = Car.find_by(id: params[:car])
-    if errors?
+    if update_errors?
       erb :'car/edit'
     else
       redirect("/#{session[:user_id]}/all_cars") 

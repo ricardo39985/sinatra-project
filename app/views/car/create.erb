@@ -1,7 +1,7 @@
 <div>
   <div>
-  <% if errors? %>
-    <% errors?.each do |message| %>
+  <% if create_errors? %>
+    <% create_errors?.each do |message| %>
       <h2><%=message%></h2>
     <% end %>     
   <% end %>

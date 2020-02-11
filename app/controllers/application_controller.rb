@@ -26,37 +26,37 @@ class ApplicationController < Sinatra::Base
       User.find_by(id: session[:user_id])
     end
 
-    def errors?
-      
-      if params[:car]
+    def update_errors?
+      # binding.pry
+      @car = Car.find_by(id: params[:car])
+      @car.update(make: params[:make]) if params[:make] && params[:make].size>0
+      @car.update(model: params[:model]) if params[:model] && params[:model].size>0
+      @car.update(year: params[:year]) if params[:year] && params[:year].size>0 
+      if @car.errors.any?
+        ActiveRecord::Rollback
+        errors = @car.errors.full_messages  
         @car = Car.find_by(id: params[:car])
-        @car.update(make: params[:make]) if params[:make] && params[:make].size>0
-        @car.update(model: params[:model]) if params[:model] && params[:model].size>0
-        @car.update(year: params[:year]) if params[:year] && params[:year].size>0 
-        if @car.errors.any?
-          ActiveRecord::Rollback
-          errors = @car.errors.full_messages  
-          @car = Car.find_by(id: params[:car])
-          errors                    
-        else
-          nil        
-        end
+        errors                    
       else
-        car = Car.new(params)
-        params.any? [{ |(key, value)| value.size==0 }]
+        nil        
+      end
+    end
 
-        if car.save && params[:make] && params[:make].size>0 && params[:model].size>0 && params[:year].size>0 
-          @user=User.find_by(id: session[:user_id])
-          car.user=@user
-          @user.cars << car 
+    def create_errors?
+      # binding.pry
+      if params.all? { |(key, value)| value.size>0 } && params.size > 2
+        car = Car.new(params)
+        if car.save
           nil
         else
-          binding.pry
           car.errors.full_messages
         end
 
+      else
+        ["All fields are required"]
+        
       end
-    
+      
     end
 
   end
