@@ -1,4 +1,14 @@
 <div>
+  <div id="errors">
+  <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |key, v| %>
+        <h3><%="#{key} #{v}"%></h3>
+      <% end %>
+  <% end %>
+
+  </div>
+  
+  
   <form action="/sign_up" method='POST'>
     Username: <input type="text" name="username" placeholder="Choose a cool username"><br>
     Email: <input type="text" name="email" placeholder="Enter your email"><br>

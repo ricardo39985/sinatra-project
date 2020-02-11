@@ -3,15 +3,12 @@ class CarController < ApplicationController
     erb :'car/create'
   end
   post '/create_car' do
-    car = Car.new(params)
-    if car.save
-      @user=User.find_by(id: session[:user_id])
-      car.user=@user
-      @user.cars << car
-      redirect("/#{session[:user_id]}/all_cars")
-      
+    
+    errors?
+    if errors?
+      erb :'car/create'      
     else
-      erb :failure
+      redirect("/#{session[:user_id]}/all_cars")
     end
   end
 
@@ -55,21 +52,24 @@ class CarController < ApplicationController
   end
 
   get '/:id/:car/modify' do
-    binding.pry
+    # binding.pry
+    @car = Car.find_by(id: params[:car])
     if logged_in?
-     @car = Car.find_by(id: params[:car])
       erb :'car/edit'
     else
-      
+      erb :failure
     end
     
   end
   patch '/:car/edit' do
-    @car = Car.find_by(id: paams[:car])
-    params.each do |k, v|
-      k != nil ? @car.update(k v) : nil
-            
+    params.delete(:_method)
+    # binding.pry
+    @car = Car.find_by(id: params[:car])
+    if errors?
+      erb :'car/edit'
+    else
+      redirect("/#{session[:user_id]}/all_cars") 
     end
-    binding.pry
+    
   end
 end

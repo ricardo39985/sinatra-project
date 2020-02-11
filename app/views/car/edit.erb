@@ -1,6 +1,14 @@
 <div>
+  <div>
+  <% if errors? %>
+      <% errors?.each do |message| %>
+        <h3><%=message%></h3>
+      <% end %>
+  <% end %>
+  </div>
 <form action="/<%=@car.id%>/edit" method = 'POST'>
   <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="car" value="<%=@car.id%>">
   <%=@car.make%>:<br><input type="text" name="make" placeholder="<%=@car.make%>"><br>
   <%=@car.model%>:<br><input type="text" name="model" placeholder="<%=@car.model%>"><br>
   <%=@car.year%>:<br><input type="text" name="year" placeholder="<%=@car.year%>"><br>

@@ -2,16 +2,18 @@
 class UserController < ApplicationController
   
   get '/sign_up' do
+    @user = User.new(params)
     erb :'user/sign_up'
   end
 
   post '/sign_up' do
-    user = User.new(params)
-    if user.save      
-       session[:user_id]=user.id
+    @user = User.new(params)
+    if @user.save      
+       session[:user_id]=@user.id
        redirect("/user/#{session[:user_id]}")
-    else
-      erb :failure
+    elsif @user.errors.any?
+      binding.pry
+      erb :'user/sign_up'
     end
   end
 

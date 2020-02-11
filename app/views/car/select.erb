@@ -7,7 +7,6 @@
     <% current_user.cars.each do |car| %>
     <a href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make%> <%=car.model%>, <%=car.year%></h3><br></a>
   <% end %>
-  <input type="submit" name="" id="">
 <% end %>
 
 
