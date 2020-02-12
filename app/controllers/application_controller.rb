@@ -57,7 +57,26 @@ class ApplicationController < Sinatra::Base
       else
         ["All fields are required"]
       end
+    end
+
+    def login_valid?
       
+      messsage = []
+      # binding.pry
+      if params.all? { |(key, value)| value.size>0 } && params.size>0
+        user= User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+          session[:user_id]=user.id
+            true
+        elsif user == nil
+          
+          "User not found"
+        else
+          "Password incorrect"
+        end
+      else
+        "Enter Log In credentials"
+      end      
     end
 
   end

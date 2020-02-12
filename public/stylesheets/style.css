@@ -1,4 +1,4 @@
-#create_car, #all_cars, #edit, #delete, #car_list,#new_car, #viewall, #editform, #sign_ {
+#create_car, #all_cars, #edit, #delete, #car_list,#new_car, #viewall, #editform {
   background-color: #155986;
   color: black;
   padding: 10px 12px;
@@ -21,9 +21,9 @@
   border-radius: 25px;
   
 }
-#logout, #home{
+#logout, #home,#login, #sign_up{
   background-color: #155986;
-  color: white;
+  color: black;
   padding: 10px 12px;
   margin-bottom: 11px;
   margin-top: 5px;
@@ -32,14 +32,15 @@
   padding: 10px 12px;
   align-content: space-around;
 }
-.links{
+.links, #login2, #sign_{
   margin: 2px 600px 5px 725px;
   margin-top: 25px;
+  font-weight: 400;
 }
 .body {
   background-color: rgba(9, 10, 10, 0.568);
 }
-.hello {
+.hello, #header{
   align-content: center;
   text-align: center;
   background-color: #155986;
@@ -51,9 +52,10 @@
 }
 
 #errors{
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.1em;
   padding-left: 29em;
-  color: rgb(138, 21, 21);
+  color: rgb(173, 0, 0);
 }
 #car_list, {
   padding-top: 1em;
@@ -61,10 +63,19 @@
 
 }
 
-#editform{
+#editform, #singup_form {
   padding-left: 1em;
   margin-left: 42.5em;
 }
-#sign_{
-  margin: auto;
+#header, .body{
+  background-repeat:no-repeat;
+  background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/21/33/OeNo3r.jpg);
+
+}
+#buttn{
+  margin-left: 75px;
+  font-weight: 400;
+}
+#login_errors{
+  color: red;
 }
