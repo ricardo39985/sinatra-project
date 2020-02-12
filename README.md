@@ -1,4 +1,4 @@
-                            #Car Garage App
+                            #Car Garage App<br>
 A simple application that will allows users to keep track of all their cars(for those who can never remember just how much cars they have)\
 It check for the uniqueness of username and email when signing up, has password validation and some amount of input validation when creating either users or cars\
 
