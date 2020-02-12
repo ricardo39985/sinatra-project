@@ -1,4 +1,8 @@
 <div>
+<% if session[:error_message] %>
+  <h2 id="errors"><%=session[:error_message]%></h2>
+  <%session.delete(:error_message)%>  
+<% end %>
 <% if current_user.cars.size==0 %>
     <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
 

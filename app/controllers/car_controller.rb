@@ -41,13 +41,19 @@ class CarController < ApplicationController
     end
   end
 
-  delete '/:id/delete' do    
+  delete '/:id/delete' do 
+    # binding.pry   
     if logged_in?
-      params[:cars].each do |ids|
-        car = Car.find_by(id: ids)
-        car.destroy  
-      end 
-      redirect("#{session[:user_id]}/delete")     
+      if params[:cars]
+        params[:cars].each do |ids|
+          car = Car.find_by(id: ids)
+          car.destroy
+        end
+          redirect("#{session[:user_id]}/delete") 
+      else  
+        session[:error_message] = "Please make a selection or return home"
+        erb :'car/delete'
+      end          
     else
       erb :failure
     end
