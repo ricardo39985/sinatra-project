@@ -4,9 +4,9 @@
 
   
 <% else %>
-<div class="main">
+<div class="viewall">
     <% current_user.cars.each do |car| %>
-    <a id="car_list"href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3></a><br>
+    <a id="viewall"href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3></a><br>
   <% end %>
 </div>
 <% end %>

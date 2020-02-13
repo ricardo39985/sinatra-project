@@ -1,81 +1,101 @@
-#create_car, #all_cars, #edit, #delete, #car_list,#new_car, #viewall, #editform {
-  background-color: #155986;
-  color: black;
-  padding: 10px 12px;
-  margin-bottom: 11px;
-  margin-top: 5px;
+.body{
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 25px;
-  align-content: space-around;
+}
+#login, #sign_up, #logout, #home {
+  background-color: rgb(73, 192, 240);
+box-shadow: 0 5px 0 rgb(50, 59, 65);
+color: white;
+padding: 0.5em 4.5em;
+margin-top: auto;
+position: relative;
+text-decoration: none;
+text-transform: capitalize;
+border-radius: 14px ;
 }
 
+#login:hover, #sign_up:hover, #logout:hover, #home:hover {
+background-color: #2d87ee;
+cursor: pointer;
+}
+
+#login:active, #sign_up:active, #logout:active, #home:active {
+box-shadow: none;
+top: 5px;
+}
+#sign_{
+  position: fixed;
+  left: 0;
+  bottom: 200px;
+  width: 100%;
+  text-align: center;
+}
+#header{
+  margin-left: 29em;
+  margin-right: 29em;
+1}
+#login2{
+  border-radius: 60px;
+  background-color: #f2f2f2;
+  position: fixed;
+  bottom: 340px;
+  margin-left: 25em;
+  width: 45%;
+  text-align: center;
+}
+input[type=submit] {
+  width: 20%;
+  background-color: rgb(73, 192, 240);
+  box-shadow: 0 5px 0 rgb(50, 59, 65);
+  color: white;
+  padding: 0.5em 4.5em;
+  margin: 8px 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #2d87ee;
+}
+
+input[type=text], input[type=password] {
+  width: 60%;
+  padding: 12px 20px;
+  margin-left: 0;
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+}
+
+#viewall{
+  border-radius: 60px;
+  background-color: #f2f2f2;
+  padding-top: 0.5em;
+}
+#edit,#create, #delete{
+  background-color: rgb(73, 192, 240);
+  box-shadow: 0 5px 0 rgb(50, 59, 65);
+  color: white;
+  padding: 0.5em 4.5em;
+  text-transform: capitalize;
+  border-radius: 14px ;
+  bottom: 90px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.hello{
+  text-align: center;
+}
 .main{
-  background-repeat:no-repeat;
-  background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Lamborghini/2019_Awaited_Lamborghini_Aventador_SVJ_63_4K_Car.jpg);
-  background-size: cover;
-  /* padding: 100px 120px 55px 77px; */
-  margin: 2px 600px 5px 600px;
+  position: fixed;
+  left: 0;
+  width: 100%;
   text-align: center;
-  border-radius: 25px;
-  
 }
-#logout, #home,#login, #sign_up{
-  background-color: #155986;
-  color: black;
-  padding: 10px 12px;
-  margin-bottom: 11px;
-  margin-top: 5px;
-  margin-bottom: 11px;
-  margin-top: 5px;
-  padding: 10px 12px;
-  align-content: space-around;
-}
-.links, #login2, #sign_{
-  margin: 2px 600px 5px 725px;
-  margin-top: 25px;
-  font-weight: 400;
-}
-.body {
-  background-color: rgba(9, 10, 10, 0.568);
-}
-.hello, #header{
-  align-content: center;
+.viewall{
+  padding-top: 2em;
+  position: relative;
+  width: 25%;
+  margin: 0 auto;
   text-align: center;
-  background-color: #155986;
-  border-radius: 25px;
-  margin: 2px 600px 5px 600px;
-}
-.new_car, #viewall{
-  margin: 10px 300px 5px 700px;
-}
-
-#errors{
-  font-weight: 600;
-  font-size: 1.1em;
-  padding-left: 29em;
-  color: rgb(173, 0, 0);
-}
-#car_list, {
-  padding-top: 1em;
-  padding-bottom: 1em;
-
-}
-
-#editform, #singup_form {
-  padding-left: 1em;
-  margin-left: 42.5em;
-}
-#header, .body{
-  background-repeat:no-repeat;
-  background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/21/33/OeNo3r.jpg);
-
-}
-#buttn{
-  margin-left: 75px;
-  font-weight: 400;
-}
-#login_errors{
-  color: red;
 }

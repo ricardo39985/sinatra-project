@@ -3,9 +3,12 @@
     <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
   
 <% else %>
-  <% @user.cars.each do |car| %>
-    <h3 id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3><br>
+  <div id="l"> 
+    <% @user.cars.each do |car| %>
+    <li id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></li>
   <% end %>
+  </div>
+  
   
 <% end %>
 

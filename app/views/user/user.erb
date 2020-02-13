@@ -8,15 +8,21 @@
 <div>
 <div class="hello">
   <h2><%=@user.username.capitalize%>, Welcome to your Garage</h2>
-  <h3>What would you like to do?</h3><br><br>
+  <h3>What would you like to do?</h3>
 </div>
-  
 
-  <div class="main">
-      <a id="create_car"href="/<%=session[:user_id]%>/create_car">Add a car</a> <br>
-      <a id="all_cars" href="/<%=session[:user_id]%>/all_cars">View all cars</a><br>
-      <a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a><br>
-      <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a><br>
-  </div>
-
+<div class="main">
+  <a id="create"href="/<%=session[:user_id]%>/create_car">Add a car</a>
+  <a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a>
+  <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a>
 </div>
+<% if @user.cars.size==0 %>
+    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+<% else %>
+<div class="viewall">
+  <% @user.cars.each do |car| %>
+    <ul id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></ul>
+  <% end %>
+</div>
+<% end %>
+
