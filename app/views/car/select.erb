@@ -1,17 +1,16 @@
 <div>
+<h2 class = "header">Please choose car to edit</h2>
 <% if current_user.cars.size==0 %>
-    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+    <h2 class = "header2">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
 
   
 <% else %>
-<div class="viewall">
+<div class="select">
     <% current_user.cars.each do |car| %>
-    <a id="viewall"href="/<%=current_user.id%>/<%=car.id%>/modify"><h3><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h3></a><br>
+    <a id="car_select"href="/<%=current_user.id%>/<%=car.id%>/modify"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></a><br>
   <% end %>
 </div>
 <% end %>
-
-
 
 </form>  
 </div>

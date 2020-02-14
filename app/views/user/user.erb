@@ -14,14 +14,14 @@
 <div class="main">
   <a id="create"href="/<%=session[:user_id]%>/create_car">Add a car</a>
   <a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a>
-  <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a>
+  <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a><br>
 </div>
 <% if @user.cars.size==0 %>
-    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+    <h2 class = "header2">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
 <% else %>
 <div class="viewall">
   <% @user.cars.each do |car| %>
-    <ul id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></ul>
+    <b><ul id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></ul></b>
   <% end %>
 </div>
 <% end %>

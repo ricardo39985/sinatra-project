@@ -1,4 +1,4 @@
-<div>
+<div class = "new_car">
   <div>
   <% if update_errors? %>
       <% update_errors?.each do |message| %>
@@ -6,7 +6,7 @@
       <% end %>
   <% end %>
   </div>
-<form id="editform" action="/<%=@car.id%>/edit" method = 'POST'>
+<form id="create_car" action="/<%=@car.id%>/edit" method = 'POST'>
   <input type="hidden" name="_method" value="PATCH">
   <input type="hidden" name="car" value="<%=@car.id%>">
   <%=@car.make%>:<br><input type="text" name="make" placeholder="<%=@car.make%>"><br>

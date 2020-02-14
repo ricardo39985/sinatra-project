@@ -1,10 +1,10 @@
-<div id="login2">
+<div class = "header">
   <h2>Log in</h2><br>
 
   <% if login_valid?.class == String%>
     <br><h2 id=login_errors><%=login_valid?%></h2>
   <% end %>
-  <form action="/login" method='POST'>
+  <form class = "new_car"action="/login" method='POST'>
     Username: <input type="text" name="username" placeholder="Enter your username"><br><br>
     Password: <input type="password" name="password" placeholder="Enter your password"><br><br><br>
     <input id="buttn" type="submit" value='Log In!' id="">

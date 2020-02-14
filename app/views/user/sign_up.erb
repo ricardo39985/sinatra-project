@@ -1,4 +1,5 @@
 <div>
+<h2 class = "header">Please fill out the form</h2>
   <div id="errors">
   <% if @user.errors.any? %>
       <% @user.errors.full_messages.each do |key, v| %>
@@ -9,7 +10,7 @@
   </div>
   
   
-  <form id="singup_form"action="/sign_up" method='POST'>
+  <form id="signup_form"action="/sign_up" method='POST'>
     Username: <input type="text" name="username" placeholder="Choose a cool username"><br><br>
     Email: <input type="text" name="email" placeholder="Enter your email"><br><br>
     Password: <input type="password" name="password" placeholder="Choose a safe password"><br><br>

@@ -16,7 +16,7 @@ class CarController < ApplicationController
       car.save
       car.user = User.find_by(id: session[:user_id])
       User.find_by(id: session[:user_id]).cars << car
-      redirect("/#{session[:user_id]}/all_cars")
+      redirect("/user/#{session[:user_id]}")
     end
     
   end
@@ -84,7 +84,7 @@ class CarController < ApplicationController
     if update_errors?
       erb :'car/edit'
     else
-      redirect("/#{session[:user_id]}/all_cars") 
+      redirect("/user/#{session[:user_id]}")
     end
     
   end
