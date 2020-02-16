@@ -51,7 +51,6 @@ class ApplicationController < Sinatra::Base
         else
           car.errors.full_messages
         end
-
       elsif params.size == 1
         nil        
       else
@@ -78,6 +77,5 @@ class ApplicationController < Sinatra::Base
         "Enter Log In credentials"
       end      
     end
-
   end
 end
