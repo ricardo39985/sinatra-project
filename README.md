@@ -2,6 +2,14 @@ Car Garage App
 A simple application that will allows users to keep track of all their cars(for those who can never remember just how much cars they have)  
 It checks for the uniqueness of username and email when signing up, has password validation and some amount of input validation when creating either users or cars  
 
+#Usage  
+clone prject  
+cd into main directory  
+run bundle  
+run rackup  
+From browser go to    
+http://localhost:9292/
+
 Home  
 ![home](https://user-images.githubusercontent.com/56775968/74567356-99cd6780-4f43-11ea-9660-75006cec1d2e.png)
 
