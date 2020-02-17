@@ -21,17 +21,6 @@ class CarController < ApplicationController
     
   end
 
-  get '/:id/all_cars' do
-
-    if logged_in?
-      @user = User.find_by(id: session[:user_id])
-      erb :'car/view_all'
-
-    else
-      redirect("/")
-    end
-  end
-
   get '/:id/delete' do
     if logged_in?
       erb :'car/delete'
@@ -76,7 +65,7 @@ class CarController < ApplicationController
       redirect("/")
     end
   end
-  
+
   patch '/:car/edit' do
     params.delete(:_method)
 
