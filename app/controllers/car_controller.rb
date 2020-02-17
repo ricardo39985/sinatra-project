@@ -3,7 +3,7 @@ class CarController < ApplicationController
     if logged_in?
       erb :'car/create'
     else
-      erb :failure
+      redirect("/")
     end
     
   end
@@ -28,7 +28,7 @@ class CarController < ApplicationController
       erb :'car/view_all'
 
     else
-      erb :failure
+      redirect("/")
     end
   end
 
@@ -37,12 +37,12 @@ class CarController < ApplicationController
       erb :'car/delete'
       
     else
-      erb :failure
+      redirect("/")
     end
   end
 
   delete '/:id/delete' do 
-    # binding.pry   
+ 
     if logged_in?
       if params[:cars]
         params[:cars].each do |ids|
@@ -55,7 +55,7 @@ class CarController < ApplicationController
         erb :'car/delete'
       end          
     else
-      erb :failure
+      redirect("/")
     end
   end
   
@@ -63,7 +63,7 @@ class CarController < ApplicationController
     if logged_in?
       erb :'car/select'
     else
-      erb :failure
+      redirect("/")
     end
   end
 
@@ -73,10 +73,10 @@ class CarController < ApplicationController
     if logged_in?
       erb :'car/edit'
     else
-      erb :failure
+      redirect("/")
     end
-    
   end
+  
   patch '/:car/edit' do
     params.delete(:_method)
 

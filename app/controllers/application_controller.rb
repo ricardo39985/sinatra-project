@@ -69,7 +69,6 @@ class ApplicationController < Sinatra::Base
           session[:user_id]=user.id
             true
         elsif user == nil
-          
           "User not found"
         else
           "Password incorrect"
@@ -78,6 +77,9 @@ class ApplicationController < Sinatra::Base
         "Enter Log In credentials"
       end      
     end
-
+  end
+  not_found do
+    status 404
+    redirect("/")
   end
 end

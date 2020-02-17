@@ -39,7 +39,7 @@ class UserController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         erb :'user/user'
       else
-        erb :failure
+        redirect("/")
       end   
   end
 
