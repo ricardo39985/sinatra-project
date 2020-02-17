@@ -8,7 +8,7 @@
 
   
 <% else %>
-<h3>Plase select from the list</h3>
+<h3>Please select from the list</h3>
 <form id="editform"action="/<%=current_user.id%>/delete" method="POST">
   <input type="hidden" name="_method" value="delete">
     <% current_user.cars.each do |car| %>

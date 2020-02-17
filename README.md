@@ -3,19 +3,22 @@ A simple application that will allows users to keep track of all their cars(for 
 It checks for the uniqueness of username and email when signing up, has password validation and some amount of input validation when creating either users or cars  
 
 Home  
-![image](https://user-images.githubusercontent.com/56775968/74349035-a6a25d80-4d81-11ea-8a5c-2ec8c3139d20.png)
+![home](https://user-images.githubusercontent.com/56775968/74567356-99cd6780-4f43-11ea-9660-75006cec1d2e.png)
 
 Create  
-![image](https://user-images.githubusercontent.com/56775968/74349336-1d3f5b00-4d82-11ea-8615-fc62f44b4e59.png)
+![create](https://user-images.githubusercontent.com/56775968/74567547-09dbed80-4f44-11ea-9b4e-b858ddcc544f.png)
+
+
 
 Read  
-![image](https://user-images.githubusercontent.com/56775968/74349650-8626d300-4d82-11ea-89b1-37fc13f6479d.png)
+![read](https://user-images.githubusercontent.com/56775968/74567619-33951480-4f44-11ea-85c7-a008c8ea62de.png)
 
 
 Update  
-![image](https://user-images.githubusercontent.com/56775968/74349168-d2254800-4d81-11ea-917f-3f11f57bc880.png)
-
+![update](https://user-images.githubusercontent.com/56775968/74567775-82db4500-4f44-11ea-9d36-c04ac95c74ad.png)  
 Delete  
-![image](https://user-images.githubusercontent.com/56775968/74349243-f41eca80-4d81-11ea-9170-1432e5f2bc8e.png)
+![delete](https://user-images.githubusercontent.com/56775968/74568557-401a6c80-4f46-11ea-9d6c-6c930fff8249.png)
+
+
 
 

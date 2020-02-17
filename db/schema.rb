@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20200210191952) do
     t.string "make"
     t.string "model"
     t.string "year"
-    t.string "user_id"
   end
 
   create_table "users", force: :cascade do |t|

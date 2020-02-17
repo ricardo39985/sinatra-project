@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Here in my Garage</title>
 </head>
-<body class = "">
+<body class = "body">
 <% if session[:user_id] %>
   <%=yield%>
-     <div id='sign_'>
+     <div class='links'>
       <a id="logout"href="/logout">Log out</a>
       <a id="home"href="/">Home</a><br>
     </div>
@@ -17,7 +17,7 @@
 <% else %>
     <%=yield%>
    <div id="sign_">
-      <a id="login" href="/login">Login</a>     
+      <a id="login" href="/login">Login</a>
       <a id="sign_up"href="/sign_up">Sign Up</a>
     </div>
 
