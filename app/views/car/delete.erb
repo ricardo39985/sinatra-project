@@ -1,26 +1,39 @@
-<div class = delete>
-<% if session[:error_message] %>
-  <h2 id="errors"><%=session[:error_message]%></h2>
+<div class = "container">
+  <div class="center-align">
+    <h3>Please select from the list</h3>
+  </div>
+  <% if session[:error_message] %>
+    <div class="center-align">
+      <p class="red-text"><%=session[:error_message]%></p>
+    </div>
   <%session.delete(:error_message)%>  
-<% end %>
-<% if current_user.cars.size==0 %>
-    <h2>You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+  <% end %>
+  <% if current_user.cars.size==0 %>
+    <div class="container center">
+      <h4 class="flow-text">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h4>
+    
+    </div>
 
   
-<% else %>
-<h3>Please select from the list</h3>
-<form id="editform"action="/<%=current_user.id%>/delete" method="POST">
-  <input type="hidden" name="_method" value="delete">
-    <% current_user.cars.each do |car| %>
-    <%=car.make%> <%=car.model%>, <%=car.year%>: <input type="checkbox" name="cars[]" value="<%=car.id%>"> <br>
-  <% end %>
-  <input type="submit" name="" id="">
+  <% else %>
+  <form id="editform"action="/<%=current_user.id%>/delete" method="POST">
+    <input type="hidden" name="_method" value="delete" >
+      <% current_user.cars.each do |car| %>
+        <div class="container">
+          <div class="card red lighten-1 hoverable z-depth-1">
+            <p>
+                <label name="cars[]" value="<%=car.id%>" >
+                  <input type="checkbox" name="cars[]" value="<%=car.id%>" />
+                  <span class="black-text"><%=car.make%> <%=car.model%>, <%=car.year%></span>
+                </label>
+            </p>
+          </div>
+        </div>
+    <% end %>
+    <div class="container">
+      <button class="btn btn-large red waves-effect wave-light">Delete</button>
+    </div>
+  </form>
 
-</form>
-
-<% end %>
-
-
-
-</form>  
+  <% end %> 
 </div>

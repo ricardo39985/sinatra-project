@@ -1,16 +1,25 @@
-<div>
-<h2 class = "header">Please choose car to edit</h2>
-<% if current_user.cars.size==0 %>
-    <h2 class = "header2">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
+<div class="container">
+  <div class="row">
+    <h3 class = "col s6 offset-s3">Please choose car to edit</h3>
+  </div>
+  <% if current_user.cars.size==0 %>
+    <p class = "center ">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></p>
 
   
-<% else %>
-<div class="select">
+  <% else %>
+  <div class="container">
     <% current_user.cars.each do |car| %>
-    <a id="car_select"href="/<%=current_user.id%>/<%=car.id%>/modify"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></a><br>
+    <div class="center">
+      <div class="card grey hoverable z-depth-1">
+        <div class="card-content">
+          <h4 class="white-text"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h4>
+        </div>
+        <div class="card-action">
+          <a href="/<%=current_user.id%>/<%=car.id%>/modify">Edit</a><br>
+        </div>
+      </div>
+    </div>
   <% end %>
-</div>
-<% end %>
-
-</form>  
+  </div>
+  <% end %>
 </div>

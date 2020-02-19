@@ -31,7 +31,7 @@ class CarController < ApplicationController
   end
 
   delete '/:id/delete' do 
- 
+
     if logged_in?
       if params[:cars]
         params[:cars].each do |ids|

@@ -27,7 +27,6 @@ class ApplicationController < Sinatra::Base
     end
 
     def update_errors?
-      # binding.pry
       @car = Car.find_by(id: params[:car])
       @car.update(make: params[:make]) if params[:make] && params[:make].size>0
       @car.update(model: params[:model]) if params[:model] && params[:model].size>0
@@ -60,22 +59,24 @@ class ApplicationController < Sinatra::Base
     end
 
     def login_valid?
-      
-      messsage = []
-      # binding.pry
-      if params.all? { |(key, value)| value.size>0 } && params.size>0
-        user= User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
-          session[:user_id]=user.id
-            true
-        elsif user == nil
-          "User not found"
-        else
-          "Password incorrect"
-        end
+      if session[:login]==1
+        session[:login]+=1
+        nil
       else
-        "Enter Log In credentials"
-      end      
+        if params.all? { |(key, value)| value.size>0 } && params.size>0
+          user= User.find_by(username: params[:username])
+          if user && user.authenticate(params[:password])
+            session[:user_id]=user.id
+              true
+          elsif user == nil
+            "User not found"
+          else
+            "Password incorrect"
+          end
+        else
+          "Enter Log In credentials"
+        end      
+      end
     end
   end
   not_found do

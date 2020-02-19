@@ -1,6 +1,6 @@
-<div>
-<h2 class = "header">Please fill out the form</h2>
-  <div id="errors">
+<div class="container">
+<h2>Please fill out the form</h2>
+  <div >
   <% if @user.errors.any? %>
       <% @user.errors.full_messages.each do |key, v| %>
         <h3><%="#{key} #{v}"%></h3>
@@ -8,13 +8,19 @@
   <% end %>
 
   </div>
-  
-  
-  <form id="signup_form"action="/sign_up" method='POST'>
-    Username: <input type="text" name="username" placeholder="Choose a cool username"><br><br>
-    Email: <input type="text" name="email" placeholder="Enter your email"><br><br>
-    Password: <input type="password" name="password" placeholder="Choose a safe password"><br><br>
-    <input type="submit" value='Sign Me Up!' id="">
-
-  </form>
+    <form id="signup_form"action="/sign_up" method='POST'>
+      <div class="input-field">
+        <input type="text" id="name" name="username" placeholder="Choose a cool username"><br><br>
+        <label for="name">Username</label>
+      </div>
+      <div class="input-field">
+        <input class="validate" type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+        <label class="active" for="email">Email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" name="password" placeholder="Choose a safe password"><br><br>
+        <label for="password">Password</label>
+      </div>
+      <button class="btn btn-large brown waves-effect wave-light">Sign Up</button>
+    </form>
 </div>

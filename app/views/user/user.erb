@@ -5,24 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Here in my Garage</title>
 </head>
-<div>
-<div class="hello">
-  <h2><%=@user.username.capitalize%>, Welcome to your Garage</h2>
-  <h3>What would you like to do?</h3>
+<div class="container">
+  <div class="card grey">
+    <div class="card-content white-text">
+        <h2><%=@user.username.capitalize%>, Welcome to your Garage</h2>
+    </div>
+  </div>
 </div>
+  <% if @user.cars.size==0 %>
+  <div class="container">
+    <div class="card grey">
+      <div class="card-content white-text">
+        <p class = "flow-text">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> </p>
+      </div>
+    </div>
+  </div>
 
-<div class="main">
-  <a id="create"href="/<%=session[:user_id]%>/create_car">Add a car</a>
-  <a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a>
-  <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a><br>
-</div>
-<% if @user.cars.size==0 %>
-    <h2 class = "header2">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></h2>
-<% else %>
-<div class="viewall">
-  <% @user.cars.each do |car| %>
-    <b><ul id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></ul></b>
+  <% else %>
+  <div class="viewall">
+    <% @user.cars.each do |car| %>
+      <div class="container">
+        <div class="card grey hoverable z-depth-1">
+            <div class="card-content white-text">
+              <div class="valign-wrapper">
+                <h5 id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h5>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <% end %>
 </div>
-<% end %>
+<div style="height:245px"></div>
+
 

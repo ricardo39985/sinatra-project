@@ -1,22 +1,26 @@
-<div>
-  <div>
-  <h2 class = "header">Create a new car</h2>
+<div class="container">
+  <h2 class = "center">Create a new car</h2>
   <% if create_errors? %>
     <% create_errors?.each do |message| %>
-      <h2 id="errors"><%=message%></h2>
+      <p class="center red-text flow-text"><%=message%></p>
     <% end %>     
   <% end %>
-  
-  </div>
 
   <div class="new_car">
-  <form id="createcar"action="/create_car" method = 'POST'>
-      Make: <br><input type="text" name="make" placeholder="Enter the make of your car"><br>
-      Model: <br><input type="text" name="model" placeholder="Enter the model of your car"><br>
-      Year: <br><input type="text" name="year" placeholder="Enter the year of your car"><br>
-      <input type="submit" value="Add Car" id="button">
+  <form id="signup_form"action="/create_car" method='POST'>
+    <div class="input-field">
+      <input type="text" id="make" name="make">
+      <label for="make">Make</label>
+    </div>
+    <div class="input-field">
+      <input  type="text" id="model" name="model">
+      <label class="active" for="model">Model</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="year" name="year">
+      <label for="year">Year</label>
+    </div>
+    <button class="btn btn-large brown waves-effect wave-light">Add Car</button>
   </form>
   </div>
-
-
 </div>

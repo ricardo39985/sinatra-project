@@ -20,6 +20,11 @@ class UserController < ApplicationController
     if logged_in?
       redirect("/")
     else
+      session.delete("login")
+      if ! session[:login]
+        session[:login]=1
+      end
+
       erb :'user/login'
     end
     

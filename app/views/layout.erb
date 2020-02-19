@@ -2,27 +2,52 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Here in my Garage</title>
 </head>
-<body class = "body">
-<% if session[:user_id] %>
-  <%=yield%>
-     <div class='links'>
-      <a id="logout"href="/logout">Log out</a>
-      <a id="home"href="/">Home</a><br>
-    </div>
-  
-<% else %>
+<body class = "grey lighten-2">
+  <% if session[:user_id] %>
+    
+    <nav class="nav-wrapper brown">
+      <div class='container'>
+        <a href="/" class="brand-logo">Garage</a>
+          <ul class="right">
+            <li><a id="logout"href="/logout">Log out</a></li>
+          </ul>
+          <ul class="right">
+            <li><a id="create"href="/<%=session[:user_id]%>/create_car">Add a car</a></li>
+            <li><a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a></li>
+            <li> <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a></li>
+          </ul>
+      </div>
+    </nav>
     <%=yield%>
-   <div id="sign_">
-      <a id="login" href="/login">Login</a>
-      <a id="sign_up"href="/sign_up">Sign Up</a>
-    </div>
+    
+  <% else %>
+      <nav class="nav-wrapper brown">
+        <div class="container">
+          <a href="/" class="brand-logo">Garage</a>
+          <ul class="right">
+            <li><a id="login" href="/login">Login</a></li>
+            <li><a id="sign_up"href="/sign_up">Sign Up</a></li>
+          </ul>
+        </div>
 
-<% end %>
+      </nav>
+          <%=yield%>
 
+    <div id="sign_">
+        
+      </div>
 
-</body>
+  <% end %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  </body>
 </html>
