@@ -5,7 +5,6 @@ class CarController < ApplicationController
     else
       redirect("/")
     end
-    
   end
   post '/new' do
 
@@ -75,6 +74,5 @@ class CarController < ApplicationController
     else
       redirect("/user")
     end
-    
   end
 end

@@ -6,21 +6,25 @@
     <% end %>     
   <% end %>
 
-  <div class="center-align">
-  <form id="signup_form"action="/new" method='POST'>
-    <div class="input-field">
-      <input type="text" id="make" name="make">
-      <label for="make">Make</label>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <div class="center-align">
+        <form id="signup_form"action="/new" method='POST'>
+          <div class="input-field">
+            <input type="text" id="make" name="make">
+            <label for="make">Make</label>
+          </div>
+          <div class="input-field">
+            <input  type="text" id="model" name="model">
+            <label class="active" for="model">Model</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="year" name="year">
+            <label for="year">Year</label>
+          </div>
+          <button class="btn btn-large brown waves-effect wave-light">Add Car</button>
+        </form>
+      </div>
     </div>
-    <div class="input-field">
-      <input  type="text" id="model" name="model">
-      <label class="active" for="model">Model</label>
-    </div>
-    <div class="input-field">
-      <input type="text" id="year" name="year">
-      <label for="year">Year</label>
-    </div>
-    <button class="btn btn-large brown waves-effect wave-light">Add Car</button>
-  </form>
   </div>
 </div>

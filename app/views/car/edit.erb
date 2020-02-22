@@ -1,26 +1,28 @@
 <div class = "container">
   <h2 class = "center">Make your changes below</h2>
-  <div>
   <% if update_errors? %>
       <% update_errors?.each do |message| %>
         <p class="flow-text red-text center" id="errors"><%=message%></h3>
       <% end %>
   <% end %>
-  </div class ="center">
-   <form class="center-align"action="/<%=@car.id%>/edit" method='POST'>
-    <input type="hidden" name="_method" value="PATCH">
-    <div class="input-field">
-      <input type="text" name="make" placeholder="<%=@car.make%>">
-      <label for="make">Make</label>
+  <div class ="row">
+    <div class="col s6 offset-s3">
+      <form class="center-align"action="/<%=@car.id%>/edit" method='POST'>
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="input-field">
+          <input type="text" name="make" placeholder="<%=@car.make%>">
+          <label for="make">Make</label>
+        </div>
+        <div class="input-field">
+          <input  placeholder="<%=@car.model%>" type="text" id="model" name="model">
+          <label class="active" for="model">Model</label>
+        </div>
+        <div class="input-field ">
+          <input class=""placeholder="<%=@car.year%>" type="text" id="year" name="year">
+          <label for="year">Year</label>
+        </div>
+        <button class="btn btn-large brown waves-effect wave-light">Make Changes</button>
+      </form>
     </div>
-    <div class="input-field">
-      <input  placeholder="<%=@car.model%>" type="text" id="model" name="model">
-      <label class="active" for="model">Model</label>
-    </div>
-    <div class="input-field ">
-      <input class=""placeholder="<%=@car.year%>" type="text" id="year" name="year">
-      <label for="year">Year</label>
-    </div>
-    <button class="btn btn-large brown waves-effect wave-light">Make Changes</button>
-  </form>
+  </div>
 </div>

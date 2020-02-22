@@ -4,16 +4,20 @@
   <% if login_valid?.class == String%>
     <p class="flow-text red-text center" id=login_errors><%=login_valid?%></p>
   <% end %>
-  <form class = "center-align" action="/login" method='POST'>
-     <div class="input-field">
-        <input type="text" id="name" name="username" placeholder="Enter your username"><br><br>
-        <label for="name">Username</label>
-      </div>
-       <div class="input-field">
-        <input type="password" id="name" name="password" placeholder="Enter your password"><br><br>
-        <label for="name">Password</label>
-      </div>
-    <button class=" center-align btn btn-large brown waves-effect wave-light">Log In</button>
-  </form>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <form class = "center-align" action="/login" method='POST'>
+        <div class="input-field">
+            <input type="text" id="name" name="username" placeholder="Enter your username"><br><br>
+            <label for="name">Username</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="name" name="password" placeholder="Enter your password"><br><br>
+            <label for="name">Password</label>
+          </div>
+        <button class=" center-align btn btn-large brown waves-effect wave-light">Log In</button>
+      </form>  
+    </div>
+  </div>
 
 </div>

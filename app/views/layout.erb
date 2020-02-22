@@ -10,9 +10,9 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Here in my Garage</title>
+  <title>Garage</title>
 </head>
-<body class = "grey lighten-2">
+<body class = "grey lighten-2"><img src="https://cdn.pixabay.com/photo/2014/02/17/21/55/abstract-268759_1280.jpg" alt="">
   <% if session[:user_id] %>
     
     <nav class="nav-wrapper brown">
@@ -20,12 +20,13 @@
         <a href="/" class="brand-logo">Garage</a>
           <ul class="right">
             <li><a id="logout"href="/logout">Log out</a></li>
+            <li><a href="https://github.com/ricardo39985/sinatra-project" target="_blank"><i class="fab fa-github fa-3x"></i></a></li>
+
           </ul>
           <ul class="right">
             <li><a id="create"href="/cars/new">Add a car</a></li>
             <li><a id="edit" href="/cars/select">Edit a car</a></li>
             <li> <a id="delete" href="/cars/delete">Delete a car</a></li>
-            <li><a href="https://github.com/ricardo39985/sinatra-project" target="_blank"><i class="fab fa-github fa-3x"></i></a></li>
           </ul>
       </div>
     </nav>
@@ -37,7 +38,7 @@
           <a href="/" class="brand-logo">Garage</a>
           <ul class="right">
             <li><a id="login" href="/login">Login</a></li>
-            <li><a id="sign_up"href="/sign_up">Sign Up</a></li>
+            <li><a id="sign_up"href="/users/new">Sign Up</a></li>
             <li><a href="https://github.com/ricardo39985/sinatra-project" target="_blank"><i class="fab fa-github fa-3x"></i></a></li>
           </ul>
         </div>
