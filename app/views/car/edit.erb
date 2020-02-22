@@ -7,7 +7,7 @@
       <% end %>
   <% end %>
   </div class ="center">
-   <form id="signup_form"action="/<%=@car.id%>/edit" method='POST'>
+   <form class="center-align"action="/<%=@car.id%>/edit" method='POST'>
     <input type="hidden" name="_method" value="PATCH">
     <div class="input-field">
       <input type="text" name="make" placeholder="<%=@car.make%>">

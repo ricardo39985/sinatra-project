@@ -4,7 +4,7 @@
   <% if login_valid?.class == String%>
     <p class="flow-text red-text center" id=login_errors><%=login_valid?%></p>
   <% end %>
-  <form class = "new_car"action="/login" method='POST'>
+  <form class = "center-align" action="/login" method='POST'>
      <div class="input-field">
         <input type="text" id="name" name="username" placeholder="Enter your username"><br><br>
         <label for="name">Username</label>
@@ -13,7 +13,7 @@
         <input type="password" id="name" name="password" placeholder="Enter your password"><br><br>
         <label for="name">Password</label>
       </div>
-    <button class="btn btn-large brown waves-effect wave-light">Log In</button>
+    <button class=" center-align btn btn-large brown waves-effect wave-light">Log In</button>
   </form>
 
 </div>

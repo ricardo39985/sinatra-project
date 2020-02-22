@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if session[:user_id]
-      redirect("/user/#{session[:user_id]}") 
+      redirect("/user") 
     else
       erb :home
     end
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      session[:user_id] && session[:user_id] == params[:id].to_i
+      session[:user_id]
     end
     def current_user
       User.find_by(id: session[:user_id])
@@ -31,7 +31,10 @@ class ApplicationController < Sinatra::Base
       @car.update(make: params[:make]) if params[:make] && params[:make].size>0
       @car.update(model: params[:model]) if params[:model] && params[:model].size>0
       @car.update(year: params[:year]) if params[:year] && params[:year].size>0 
-      if @car.errors.any?
+      # binding.pry
+      if ! @car 
+        redirect("/")
+      elsif @car.errors.any?
         ActiveRecord::Rollback
         errors = @car.errors.full_messages  
         @car = Car.find_by(id: params[:car])
@@ -51,7 +54,7 @@ class ApplicationController < Sinatra::Base
           car.errors.full_messages
         end
 
-      elsif params.size == 1
+      elsif params.size == 0
         nil        
       else
         ["All fields are required"]

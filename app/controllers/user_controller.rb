@@ -10,7 +10,7 @@ class UserController < ApplicationController
     @user = User.new(params)
     if @user.save      
        session[:user_id]=@user.id
-       redirect("/user/#{session[:user_id]}")
+       redirect("/user")
     elsif @user.errors.any?
       erb :'user/sign_up'
     end
@@ -32,15 +32,15 @@ class UserController < ApplicationController
 
   post '/login' do
     if login_valid? == true
-      redirect "/user/#{session[:user_id]}"
+      redirect "/user"
     else
       erb :'user/login'
     end
 
   end
 
-  get '/user/:id' do
-      if session[:user_id] && session[:user_id] == params[:id].to_i
+  get '/user' do
+      if session[:user_id]
         @user = User.find_by(id: session[:user_id])
         erb :'user/user'
       else

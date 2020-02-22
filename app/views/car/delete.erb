@@ -16,7 +16,8 @@
 
   
   <% else %>
-  <form id="editform"action="/<%=current_user.id%>/delete" method="POST">
+  <div class="row">
+    <form class="col s6 left-align offset-s3 center-align"action="/delete" method="POST">
     <input type="hidden" name="_method" value="delete" >
       <% current_user.cars.each do |car| %>
         <div class="container">
@@ -33,7 +34,7 @@
     <div class="container">
       <button class="btn btn-large red waves-effect wave-light">Delete</button>
     </div>
-  </form>
-
+    </form>
+  </div>
   <% end %> 
 </div>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://kit.fontawesome.com/4c7508c500.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,9 +22,9 @@
             <li><a id="logout"href="/logout">Log out</a></li>
           </ul>
           <ul class="right">
-            <li><a id="create"href="/<%=session[:user_id]%>/create_car">Add a car</a></li>
-            <li><a id="edit" href="/<%=session[:user_id]%>/edit">Edit a car</a></li>
-            <li> <a id="delete" href="/<%=session[:user_id]%>/delete">Delete a car</a></li>
+            <li><a id="create"href="/cars/new">Add a car</a></li>
+            <li><a id="edit" href="/cars/select">Edit a car</a></li>
+            <li> <a id="delete" href="/cars/delete">Delete a car</a></li>
           </ul>
       </div>
     </nav>

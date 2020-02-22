@@ -1,5 +1,5 @@
 class CarController < ApplicationController
-  get '/:id/create_car' do
+  get '/cars/new' do
     if logged_in?
       erb :'car/create'
     else
@@ -7,7 +7,7 @@ class CarController < ApplicationController
     end
     
   end
-  post '/create_car' do
+  post '/new' do
 
     if create_errors?
       erb :'car/create' 
@@ -16,12 +16,12 @@ class CarController < ApplicationController
       car.save
       car.user = User.find_by(id: session[:user_id])
       User.find_by(id: session[:user_id]).cars << car
-      redirect("/user/#{session[:user_id]}")
+      redirect("/user")
     end
     
   end
 
-  get '/:id/delete' do
+  get '/cars/delete' do
     if logged_in?
       erb :'car/delete'
       
@@ -30,7 +30,7 @@ class CarController < ApplicationController
     end
   end
 
-  delete '/:id/delete' do 
+  delete '/delete' do 
 
     if logged_in?
       if params[:cars]
@@ -38,7 +38,7 @@ class CarController < ApplicationController
           car = Car.find_by(id: ids)
           car.destroy
         end
-          redirect("#{session[:user_id]}/delete") 
+          redirect("/delete") 
       else  
         session[:error_message] = "Please make a selection or return home"
         erb :'car/delete'
@@ -48,7 +48,7 @@ class CarController < ApplicationController
     end
   end
   
-  get '/:id/edit' do
+  get '/cars/select' do
     if logged_in?
       erb :'car/select'
     else
@@ -56,10 +56,10 @@ class CarController < ApplicationController
     end
   end
 
-  get '/:id/:car/modify' do
+  get '/cars/:car/edit' do
 
-    @car = Car.find_by(id: params[:car])
-    if logged_in?
+    @car = current_user.cars.find_by(id: params[:car])
+    if logged_in? && @car
       erb :'car/edit'
     else
       redirect("/")
@@ -69,11 +69,11 @@ class CarController < ApplicationController
   patch '/:car/edit' do
     params.delete(:_method)
 
-    @car = Car.find_by(id: params[:car])
+    @car = current_user.cars.find_by(id: params[:car])
     if update_errors?
       erb :'car/edit'
     else
-      redirect("/user/#{session[:user_id]}")
+      redirect("/user")
     end
     
   end
