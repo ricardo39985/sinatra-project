@@ -6,16 +6,16 @@
   <title>Here in my Garage</title>
 </head>
 <div class="container">
-  <div class="card grey">
-    <div class="card-content white-text">
+  <div class="card grey lighten-4">
+    <div class="card-content black-text">
         <h2><%=@user.username.titleize%>, Welcome to your Garage</h2>
     </div>
   </div>
 </div>
   <% if @user.cars.size==0 %>
   <div class="container">
-    <div class="card grey">
-      <div class="card-content white-text">
+    <div class="card grey lighten-2">
+      <div class="card-content black-text">
         <p class = "flow-text">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> </p>
       </div>
     </div>
@@ -25,8 +25,8 @@
   <div class="viewall">
     <% @user.cars.each do |car| %>
       <div class="container">
-        <div class="card grey hoverable z-depth-1">
-            <div class="card-content white-text">
+        <div class="card grey lighten-2 hoverable z-depth-1">
+            <div class="card-content black-text">
               <div class="valign-wrapper">
                 <h5 id="viewall"><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h5>
               </div>

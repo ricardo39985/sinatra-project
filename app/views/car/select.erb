@@ -10,9 +10,9 @@
   <div class="container ">
     <% current_user.cars.each do |car| %>
     <div class="center ">
-      <div class="card grey hoverable z-depth-1">
+      <div class="card grey lighten-2 hoverable z-depth-1">
         <div class="card-content">
-          <h5 class="white-text "><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h5>
+          <h5 class="black-text "><%=car.make.capitalize%> <%=car.model.capitalize%>, <%=car.year%></h5>
         </div>
         <div class="card-action">
           <a href="/cars/<%=car.id%>/edit"><i class="far fa-edit fa-3x"></i></a>

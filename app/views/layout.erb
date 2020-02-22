@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    body {background: 
+             linear-gradient(
+                              rgba(33, 150, 243, 0.41), 
+                              rgba(33, 150, 243, 0.41)
+                             ),
+          url("https://img.wallpapersafari.com/desktop/1680/1050/56/62/S5MveD.jpg");
+          }
+  </style>
   <script src="https://kit.fontawesome.com/4c7508c500.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/stylesheets/style.css"/>
@@ -12,10 +21,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Garage</title>
 </head>
-<body class = "grey lighten-2"><img src="https://cdn.pixabay.com/photo/2014/02/17/21/55/abstract-268759_1280.jpg" alt="">
+<body class = "grey lighten-2">
   <% if session[:user_id] %>
     
-    <nav class="nav-wrapper brown">
+    <nav class="nav-wrapper blue">
       <div class='container'>
         <a href="/" class="brand-logo">Garage</a>
           <ul class="right">
@@ -33,7 +42,7 @@
     <%=yield%>
     
   <% else %>
-      <nav class="nav-wrapper brown">
+      <nav class="nav-wrapper blue">
         <div class="container">
           <a href="/" class="brand-logo">Garage</a>
           <ul class="right">
@@ -53,6 +62,5 @@
   <% end %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
   </body>
 </html>
