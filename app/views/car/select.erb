@@ -3,7 +3,7 @@
     <h3 class = "col s6 offset-s3">Please choose car to edit</h3>
   </div>
   <% if current_user.cars.size==0 %>
-    <p class = "center ">You currently have no cars. Why not <a href="/<%=current_user.id%>/create_car">Add a car</a> <br></p>
+    <p class = "center ">You currently have no cars. Why not <a href="/cars/new">Add a car</a> <br></p>
 
   
   <% else %>

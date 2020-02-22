@@ -6,7 +6,7 @@ class CarController < ApplicationController
       redirect("/")
     end
   end
-  post '/new' do
+  post '/cars/new' do
 
     if create_errors?
       erb :'car/create' 
