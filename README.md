@@ -12,27 +12,15 @@ bundle install
 ## Usage
 Run `shotgun`.
 Head to `localhost:9292`  
-You may sign up or login if you already created your account
-
-
-
-
+You may sign up or login if you already created your account  
 Home  
-![home](https://user-images.githubusercontent.com/56775968/74567356-99cd6780-4f43-11ea-9660-75006cec1d2e.png)
-
+![home](https://user-images.githubusercontent.com/56775968/75082855-ac1b4880-54e3-11ea-96b1-e1ea77ea5360.png)  
 Create  
-![create](https://user-images.githubusercontent.com/56775968/74567547-09dbed80-4f44-11ea-9b4e-b858ddcc544f.png)
-
-
-
-Read  
-![read](https://user-images.githubusercontent.com/56775968/74567619-33951480-4f44-11ea-85c7-a008c8ea62de.png)
-
-
+![create](https://user-images.githubusercontent.com/56775968/75082860-b0476600-54e3-11ea-8bee-37378a1e13ee.png)  
 Update  
-![update](https://user-images.githubusercontent.com/56775968/74567775-82db4500-4f44-11ea-9d36-c04ac95c74ad.png)  
+![edit](https://user-images.githubusercontent.com/56775968/75082867-b5a4b080-54e3-11ea-8885-75f3ed16dd9e.png)  
 Delete  
-![delete](https://user-images.githubusercontent.com/56775968/74567699-59221e00-4f44-11ea-97a9-fe79ca02ff46.png)  
+![delete](https://user-images.githubusercontent.com/56775968/75082870-b9383780-54e3-11ea-8658-e535a73fa3d5.png)  
 ## Contributing
 Feel free to contribute!  
 ## License  
