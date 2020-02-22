@@ -1,6 +1,6 @@
 
 
-# My Sweet Project
+# Garage
 A simple application that was built on Sinatra that uses MVC and follows RESTful routing conventions.It allows users to keep track of all their cars(for those who can never remember just how much cars they have) and allows a user to perform CRUD operations
 It checks for the uniqueness of username and email when signing up, has password validation and some amount of input validation when creating either users or cars 
 
