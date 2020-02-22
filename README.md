@@ -32,7 +32,7 @@ Read
 Update  
 ![update](https://user-images.githubusercontent.com/56775968/74567775-82db4500-4f44-11ea-9d36-c04ac95c74ad.png)  
 Delete  
-![delete](https://user-images.githubusercontent.com/56775968/74568557-401a6c80-4f46-11ea-9d6c-6c930fff8249.png)  
+![delete](https://user-images.githubusercontent.com/56775968/74567699-59221e00-4f44-11ea-97a9-fe79ca02ff46.png)  
 ## Contributing
 Feel free to contribute!  
 ## License  
