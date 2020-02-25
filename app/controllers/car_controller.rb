@@ -12,9 +12,9 @@ class CarController < ApplicationController
       erb :'car/create' 
     else
       car = Car.new(params)
-      car.save
       car.user = User.find_by(id: session[:user_id])
-      User.find_by(id: session[:user_id]).cars << car
+      car.save
+      #User.find_by(id: session[:user_id]).cars << car
       redirect("/user")
     end
     
