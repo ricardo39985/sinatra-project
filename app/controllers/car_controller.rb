@@ -14,7 +14,6 @@ class CarController < ApplicationController
       car = Car.new(params)
       car.user = User.find_by(id: session[:user_id])
       car.save
-      #User.find_by(id: session[:user_id]).cars << car
       redirect("/user")
     end
     
