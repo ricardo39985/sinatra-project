@@ -3,7 +3,8 @@ class CreateCars < ActiveRecord::Migration
     create_table :cars do |t|
       t.string :make
       t.string :model
-      t.string :year      
+      t.string :year
+      t.integer :user_id      
     end
   end
 end
