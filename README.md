@@ -11,7 +11,7 @@ git clone https://github.com/ricardo39985/sinatra-project.git
 bundle install
 ```
 ## Usage
-Run `shotgun`.
+Run `puma`.
 Head to `localhost:9292`  
 You may sign up or login if you already created your account  
 Home  
