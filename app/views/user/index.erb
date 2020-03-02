@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/stylesheets/main.css" />  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Here in my Garage</title>
+</head>
+<div class="container">
+  <div class="">
+    <div class="">
+        <h2><%=current_user.username.titleize%>, Welcome to your Garage</h2>
+    </div>
+  </div>
+</div>
+  <% if current_user.cars.size==0 %>
+  <div class="container">
+    <div class="card blue lighten-3 ">
+      <div class="card-content white-text">
+        <p class = "flow-text">You currently have no cars. Why not <a href="/cars/new">Add a car</a> </p>
+      </div>
+    </div>
+  </div>
+
+  <% else %>
+  <div class="viewall">
+    <% current_user.cars.each do |car| %>
+      <div class="row ">
+        <a  href=<%="/car/#{car.id}"%>>
+          <div class="col s8 valign offset-s2 center text">
+            <div class="card blue-grey darken-1 hoverable">
+              <div class="card-content white-text">
+              <ul>
+              <h2>
+                  <% if car.year %>
+                    <%=car.year%>,                  
+                  <% end %>
+                  <% if car.make %>
+                    <%=car.make%>                  
+                  <% end %>
+                  <% if car.model %>
+                    <%=car.model%>                  
+                  <% end %>
+              </h2>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<div style="height:245px"></div>
+
+

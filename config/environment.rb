@@ -9,5 +9,9 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
+require 'pry'
+require 'faker'
+I18n.reload!
+include Faker
 require_all 'app'
 

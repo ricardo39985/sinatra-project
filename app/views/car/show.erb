@@ -1,0 +1,47 @@
+
+<div class= "row">
+  <div class= "col s12 ">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <h1 class="card-title"><%=@car.year%> <%=@car.make%> <%=@car.model%></h1>
+        <% if @car.color %>
+        <p>
+        Color: <%=@car.color%>
+        </p>
+        <% end %>
+        <% if @car.transmission %>
+        <p>
+          Transmission: <%=@car.transmission%>                  
+        </p>
+        <% end %>
+        <% if @car.options %>
+        <p>
+          Options: <%=@car.options%>                
+        
+        </p>
+        <% end %>
+        <% if @car.specs %>
+        <p>
+          Specs: <%=@car.specs%>                  
+        </p>
+        <% end %>
+        <% if @car.mileage %>
+        <p>
+        Mileage: <%=@car.mileage%>                  
+        </p>
+        <% end %>
+      </div>
+      <div class= "card-action">
+        <p><a class="" href=<%="/car/#{@car.id}/edit"%>><button class="btn-small waves-effect waves-light" type="submit" name="action">Edit
+            <i class="material-icons right">send</i>
+          </button></a></p>
+        <form action=<%="/#{@car.id}/delete"%> method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <button class="btn-small waves-effect waves-light red" type="submit" name="action">Delete
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

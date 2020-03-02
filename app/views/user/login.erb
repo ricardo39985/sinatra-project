@@ -1,8 +1,12 @@
 <div class = "container">
   <h2 class = "center">Log in</h2><br>
 
-  <% if login_valid?.class == String%>
-    <p class="flow-text red-text center" id=login_errors><%=login_valid?%></p>
+  <% if !@login_route %>
+    <% if login_errors%>
+      <% login_errors.each do |error| %>
+        <p class="flow-text red-text center" id=login_errors><%=error%></p>
+      <% end %>
+    <% end %>
   <% end %>
   <div class="row">
     <div class="col s6 offset-s3">

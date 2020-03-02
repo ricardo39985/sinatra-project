@@ -1,77 +1,67 @@
 class CarController < ApplicationController
   get '/cars/new' do
     if logged_in?
-      erb :'car/create'
+      erb :'car/new'
     else
       redirect("/")
     end
   end
+
   post '/cars/new' do
 
     if create_errors?
-      erb :'car/create' 
+      erb :'car/new' 
     else
-      car = Car.new(params)
-      car.user = User.find_by(id: session[:user_id])
-      car.save
-      redirect("/user")
-    end
-    
-  end
-
-  get '/cars/delete' do
-    if logged_in?
-      erb :'car/delete'
-      
-    else
-      redirect("/")
+      @car = Car.new(params)
+      @car.user = User.find_by(id: session[:user_id])
+      new_car_specs
+      @car.save
+      redirect("/car/#{@car.id}")
     end
   end
 
-  delete '/delete' do 
+  get '/car/:id'do
+  if logged_in?
+    @car = current_user.cars.find_by(id: params[:id])
+    if @car
+      erb :'car/show'        
+    else
+      redirect("/user/#{current_user.id}")        
+    end
+  else
+    redirect("/")
+  end
+end
 
+  get '/car/:id/edit'do
+  if logged_in?
+    @car = current_user.cars.find_by(id: params[:id])
+    if @car
+      erb :'car/edit'      
+    else
+      redirect("/user/#{current_user.id}")        
+    end
+  else
+    redirect("/")
+  end
+end
+  
+  delete '/:id/delete' do 
     if logged_in?
-      if params[:cars]
-        params[:cars].each do |ids|
-          car = Car.find_by(id: ids)
-          car.destroy
-        end
-          redirect("/delete") 
-      else  
-        session[:error_message] = "Please make a selection or return home"
-        erb :'car/delete'
-      end          
+      car = Car.find_by(id: params[:id])
+      car.destroy
+      redirect("/user/#{current_user.id}")    
     else
       redirect("/")
     end
   end
   
-  get '/cars/select' do
-    if logged_in?
-      erb :'car/select'
-    else
-      redirect("/")
-    end
-  end
-
-  get '/cars/:car/edit' do
-
-    @car = current_user.cars.find_by(id: params[:car])
-    if logged_in? && @car
+  patch '/:id/edit' do
+    @car = current_user.cars.find_by(id: params[:id])
+    if update_messages
       erb :'car/edit'
     else
-      redirect("/")
-    end
-  end
-
-  patch '/:car/edit' do
-    params.delete(:_method)
-
-    @car = current_user.cars.find_by(id: params[:car])
-    if update_errors?
-      erb :'car/edit'
-    else
-      redirect("/user")
+      redirect("/car/#{@car.id}")
     end
   end
 end

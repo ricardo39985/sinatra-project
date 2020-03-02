@@ -2,13 +2,7 @@
 <html lang="en">
 <head>
   <style>
-    body {background: 
-             linear-gradient(
-                              rgba(33, 150, 243, 0.41), 
-                              rgba(33, 150, 243, 0.41)
-                             ),
-          url("https://img.wallpapersafari.com/desktop/1680/1050/56/62/S5MveD.jpg");
-          }
+    
   </style>
   <script src="https://kit.fontawesome.com/4c7508c500.js" crossorigin="anonymous"></script>
 
@@ -24,7 +18,7 @@
 <body class = "grey lighten-2">
   <% if session[:user_id] %>
     
-    <nav class="nav-wrapper blue">
+    <nav class="nav-wrapper blue-grey darken-1">
       <div class='container'>
         <a href="/" class="brand-logo">Garage</a>
           <ul class="right">
@@ -34,15 +28,13 @@
           </ul>
           <ul class="right">
             <li><a id="create"href="/cars/new">Add a car</a></li>
-            <li><a id="edit" href="/cars/select">Edit a car</a></li>
-            <li> <a id="delete" href="/cars/delete">Delete a car</a></li>
           </ul>
       </div>
     </nav>
     <%=yield%>
     
   <% else %>
-      <nav class="nav-wrapper blue">
+      <nav class="nav-wrapper blue-grey darken-1">
         <div class="container">
           <a href="/" class="brand-logo">Garage</a>
           <ul class="right">

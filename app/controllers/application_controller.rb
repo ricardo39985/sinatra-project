@@ -10,8 +10,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    if session[:user_id]
-      redirect("/user") 
+    if logged_in?
+      redirect("/user/#{current_user.id}") 
     else
       erb :home
     end
@@ -20,32 +20,65 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      session[:user_id]
+      !!session[:user_id]
     end
+
+    def new_car_specs
+      @car.update(
+      color: Faker::Vehicle.color ,
+      transmission: Faker::Vehicle.transmission ,
+      options: Faker::Vehicle.car_options.flatten.to_sentence,
+      specs: Faker::Vehicle.standard_specs.flatten.to_sentence ,
+      mileage:Faker::Vehicle.mileage(min: 50_000, max: 250_000)
+    ) 
+    end
+
+    def success
+      10.times do
+        new_car = Car.new(
+          make: Faker::Vehicle.manufacture,
+          year: Faker::Vehicle.year,
+          color: Faker::Vehicle.color ,
+          transmission: Faker::Vehicle.transmission ,
+          options: Faker::Vehicle.car_options.flatten.to_sentence,
+          specs: Faker::Vehicle.standard_specs.flatten.to_sentence ,
+          mileage:Faker::Vehicle.mileage(min: 50_000, max: 250_000)
+        )
+        new_car.model= Faker::Vehicle.model
+        new_car.user = @user
+        new_car.save
+      end      
+    end
+
+    def login_errors
+      errors = []
+      if params.values.any? &:empty?
+        errors << "All fields are required"
+      elsif !@user
+        errors << "User not found"  
+      else      
+        errors << "Password incorrect"        
+      end
+      errors     
+    end
+
     def current_user
       User.find_by(id: session[:user_id])
     end
 
-    def update_errors?
-      @car = Car.find_by(id: params[:car])
-      @car.update(make: params[:make]) if params[:make] && params[:make].size>0
-      @car.update(model: params[:model]) if params[:model] && params[:model].size>0
-      @car.update(year: params[:year]) if params[:year] && params[:year].size>0 
-      # binding.pry
-      if ! @car 
-        redirect("/")
-      elsif @car.errors.any?
-        ActiveRecord::Rollback
-        errors = @car.errors.full_messages  
-        @car = Car.find_by(id: params[:car])
-        errors                    
-      else
-        nil        
-      end
+    def update_messages
+        @car.update(make: params[:make]) if params[:make] && params[:make].size>0
+        @car.update(model: params[:model]) if params[:model] && params[:model].size>0
+        @car.update(year: params[:year]) if params[:year] && params[:year].size>0
+        if @car.save
+            false
+        else
+          ActiveRecord::Rollback
+          @car.errors.full_messages
+        end
     end
 
     def create_errors?
-      # binding.pry
       if params.all? { |(key, value)| value.size>0 } && params.size > 2
         car = Car.new(params)
         if car.save
@@ -62,24 +95,9 @@ class ApplicationController < Sinatra::Base
     end
 
     def login_valid?
-      if session[:login]==1
-        session[:login]+=1
-        nil
-      else
-        if params.all? { |(key, value)| value.size>0 } && params.size>0
-          user= User.find_by(username: params[:username])
-          if user && user.authenticate(params[:password])
-            session[:user_id]=user.id
-              true
-          elsif user == nil
-            "User not found"
-          else
-            "Password incorrect"
-          end
-        else
-          "Enter Log In credentials"
-        end      
-      end
+      if @user && @user.authenticate(params[:password])     
+        true
+      end 
     end
   end
   not_found do

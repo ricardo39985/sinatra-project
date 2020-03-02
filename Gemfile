@@ -12,3 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
+
+group :development ,:test do
+  gem 'faker'
+end

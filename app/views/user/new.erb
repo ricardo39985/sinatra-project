@@ -2,8 +2,8 @@
 <h2 class="center">Please fill out the form</h2>
   <div >
   <% if @user.errors.any? %>
-      <% @user.errors.full_messages.each do |key, v| %>
-        <h3 class="flow-text red-text center"><%="#{key} #{v}"%></h3>
+      <% @user.errors.full_messages.uniq.each do |message| %>
+        <h4 class="flow-text red-text center"><%=message%></h4>
       <% end %>
   <% end %>
 
