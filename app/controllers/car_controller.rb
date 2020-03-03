@@ -1,19 +1,15 @@
 class CarController < ApplicationController
   get '/cars/new' do
-    if logged_in?
-      erb :'car/new'
-    else
-      redirect("/")
-    end
+    redirect_if_not_logged_in
+    erb :'car/new'
   end
 
   post '/cars/new' do
-
+    redirect_if_not_logged_in
     if create_errors?
       erb :'car/new' 
     else
-      @car = Car.new(params)
-      @car.user = User.find_by(id: session[:user_id])
+      @car = current_user.cars.new(params)
       new_car_specs
       @car.save
       redirect("/car/#{@car.id}")
@@ -21,47 +17,48 @@ class CarController < ApplicationController
   end
 
   get '/car/:id'do
-  if logged_in?
-    @car = current_user.cars.find_by(id: params[:id])
+  redirect_if_not_logged_in
+    set_car
     if @car
       erb :'car/show'        
     else
       redirect("/user/#{current_user.id}")        
     end
-  else
-    redirect("/")
-  end
 end
 
   get '/car/:id/edit'do
-  if logged_in?
-    @car = current_user.cars.find_by(id: params[:id])
+  redirect_if_not_logged_in
+    set_car
     if @car
       erb :'car/edit'      
     else
       redirect("/user/#{current_user.id}")        
     end
-  else
-    redirect("/")
-  end
 end
-  
-  delete '/:id/delete' do 
-    if logged_in?
-      car = Car.find_by(id: params[:id])
-      car.destroy
+
+  delete '/:id/delete' do
+    redirect_if_not_logged_in 
+    set_car
+    if @car
+      @car.destroy
       redirect("/user/#{current_user.id}")    
     else
       redirect("/")
     end
   end
-  
+
   patch '/:id/edit' do
-    @car = current_user.cars.find_by(id: params[:id])
     if update_messages
       erb :'car/edit'
     else
       redirect("/car/#{@car.id}")
     end
   end
+
+  private
+
+  def set_car
+    @car = current_user.cars.find_by(id: params[:id])    
+  end
+
 end

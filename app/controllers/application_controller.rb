@@ -99,7 +99,14 @@ class ApplicationController < Sinatra::Base
         true
       end 
     end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect("/")
+      end
+    end
   end
+
   not_found do
     status 404
     redirect("/")
